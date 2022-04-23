@@ -1,0 +1,26 @@
+.wrapper form {
+    background-color: #FFF;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.2rem;
+    border-radius: 0.3rem;
+    width: 30rem;
+    max-height: 40rem;
+}
+
+.wrapper form input {
+    border: none;
+    outline: none;
+    width: 100%;
+
+
+}
+
+@media (max-width: 360px) {
+    .wrapper form {
+        width: 5rem;
+    }
+}
