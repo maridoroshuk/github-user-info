@@ -9,6 +9,8 @@ function Search() {
     const dispatch = useDispatch()
 
 
+
+
     const userInputChangeHandler = (e) => {
         setUserInput(e.target.value)
     }
@@ -16,6 +18,7 @@ function Search() {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(fetchUserProfile(userInut))
+        dispatch(fetchRepos(userInut))
         setUserInput("")
     }
     return (

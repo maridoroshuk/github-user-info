@@ -1,0 +1,52 @@
+.name h2 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.name p a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+    color: #0064EB;
+    text-decoration: none;
+}
+
+.name img {
+    width: 17.5rem;
+    border-radius: 50%;
+}
+
+.followers {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    max-width: 20rem;
+}
+
+.followers p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 10rem;
+}
+
+.followers p i {
+    margin-right: 0.5rem;
+}
+
+
+@media (max-width: 40rem) {
+    .followers {
+        flex-wrap: wrap;
+        margin-top: 0;
+
+    }
+
+}

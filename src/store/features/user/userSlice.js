@@ -15,7 +15,7 @@ export const fetchRepos = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://api.github.com/users/${user}/repos?per_page=10&sort=asc`
+        `https://api.github.com/users/${user}/repos?per_page=4&sort=asc`
       )
       return response.data
     } catch (error) {
@@ -34,7 +34,12 @@ export const fetchUserProfile = createAsyncThunk(
   "repos/list",
   async (user, thunkAPI) => {
     try {
+      console.log(user)
+
       const response = await axios.get(`https://api.github.com/users/${user}`)
+
+      console.log(response.data)
+
       return response.data
     } catch (error) {
       const message =
@@ -48,10 +53,11 @@ export const fetchUserProfile = createAsyncThunk(
   }
 )
 
-const userSlice = createSlice({
-  name: "user",
+const profileSlice = createSlice({
+  name: "profile",
   initialState,
-  extrareducers: (builder) => {
+
+  extraReducers: (builder) => {
     builder
       .addCase(fetchRepos.pending, (state) => {
         state.isLoading = true
@@ -68,7 +74,6 @@ const userSlice = createSlice({
       })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
         state.user = action?.payload
-        console.log(`action.payload`)
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.isError = true
@@ -77,4 +82,4 @@ const userSlice = createSlice({
   }
 })
 
-export default userSlice.reducer
+export default profileSlice.reducer

@@ -19,8 +19,9 @@
 
 }
 
-@media (max-width: 360px) {
+@media (max-width: 40rem) {
     .wrapper form {
-        width: 5rem;
+        max-width: 15rem;
     }
+
 }

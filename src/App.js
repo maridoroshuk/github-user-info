@@ -1,12 +1,12 @@
 import "./App.css"
 import Navbar from "./components/Navigation/Navbar"
-import Info from "./components/Profile/Info"
+import Profile from "./components/Profile/Profile"
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Info />
+      <Profile />
     </div>
   )
 }

@@ -13,9 +13,9 @@
 
 }
 
-@media (max-width: 360px) {
+@media (max-width: 40rem) {
     .section {
-        flex-wrap: wrap;
         justify-content: center;
+        flex-wrap: wrap;
     }
 }
