@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 const initialState = {
-  user: "",
+  user: {},
   repos: [],
   isError: false,
   isSucces: false,
@@ -10,20 +10,14 @@ const initialState = {
   message: ""
 }
 
-const config = {
-  headers: {
-    Authorization: `Token ${procces.env.GITHUB_TOKEN}`
-  }
-}
-//test
-export const fetchRepos = creaateAsyncThunk(
+export const fetchRepos = createAsyncThunk(
   "profile/list",
   async (user, thunkAPI) => {
     try {
-      return await axios.get(
-        `https://api.github.com/users/${user}/repos?per_page=700&sort=asc`,
-        config
+      const response = await axios.get(
+        `https://api.github.com/users/${user}/repos?per_page=10&sort=asc`
       )
+      return response.data
     } catch (error) {
       const message =
         (error.response &&
@@ -36,11 +30,12 @@ export const fetchRepos = creaateAsyncThunk(
   }
 )
 
-export const fetchUserProfile = creaateAsyncThunk(
+export const fetchUserProfile = createAsyncThunk(
   "repos/list",
   async (user, thunkAPI) => {
     try {
-      return await axios.get(`https://api.github.com/users/${user}`, config)
+      const response = await axios.get(`https://api.github.com/users/${user}`)
+      return response.data
     } catch (error) {
       const message =
         (error.response &&
@@ -53,7 +48,7 @@ export const fetchUserProfile = creaateAsyncThunk(
   }
 )
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState,
   extrareducers: (builder) => {
@@ -61,7 +56,7 @@ export const userSlice = createSlice({
       .addCase(fetchRepos.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(fetchRepos.fulfiled, (state, action) => {
+      .addCase(fetchRepos.fulfilled, (state, action) => {
         state.repos = action?.payload
       })
       .addCase(fetchRepos.rejected, (state, action) => {
@@ -71,8 +66,9 @@ export const userSlice = createSlice({
       .addCase(fetchUserProfile.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(fetchUserProfile.fulfiled, (state, action) => {
+      .addCase(fetchUserProfile.fulfilled, (state, action) => {
         state.user = action?.payload
+        console.log(`action.payload`)
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.isError = true

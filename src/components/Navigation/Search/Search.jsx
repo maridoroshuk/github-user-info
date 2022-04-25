@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Search.module.css"
 import SearchIcon from "../../../assets/search-icon.png"
+import { fetchRepos, fetchUserProfile } from '../../../store/features/user/userSlice'
+import { useDispatch } from 'react-redux'
 
 function Search() {
     const [userInut, setUserInput] = useState("")
+    const dispatch = useDispatch()
 
-    const userInputChangeHandler = () => {
 
+    const userInputChangeHandler = (e) => {
+        setUserInput(e.target.value)
     }
 
-    const submitHandler = () => {
-
+    const submitHandler = (e) => {
+        e.preventDefault()
+        dispatch(fetchUserProfile(userInut))
+        setUserInput("")
     }
     return (
         <div className={styles.wrapper}>
