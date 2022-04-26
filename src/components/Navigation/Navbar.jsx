@@ -7,7 +7,9 @@ function Navbar() {
     return (
         <div className={styles.wrapper}>
             <div className={styles.section}>
-                <img src={Logo} alt="github logo" />
+                <div className={styles.logo}>
+                    <img src={Logo} alt="github logo" />
+                </div>
                 <Search />
             </div>
 

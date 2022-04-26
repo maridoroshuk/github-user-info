@@ -12,10 +12,11 @@ const initialState = {
 
 export const fetchRepos = createAsyncThunk(
   "profile/list",
-  async (user, thunkAPI) => {
+  async (payload, thunkAPI) => {
     try {
+      console.log(payload)
       const response = await axios.get(
-        `https://api.github.com/users/${user}/repos?per_page=4&sort=asc`
+        `https://api.github.com/users/${payload.user}/repos?per_page=4&sort=asc&page=${payload.age}`
       )
       return response.data
     } catch (error) {
@@ -34,12 +35,7 @@ export const fetchUserProfile = createAsyncThunk(
   "repos/list",
   async (user, thunkAPI) => {
     try {
-      console.log(user)
-
       const response = await axios.get(`https://api.github.com/users/${user}`)
-
-      console.log(response.data)
-
       return response.data
     } catch (error) {
       const message =

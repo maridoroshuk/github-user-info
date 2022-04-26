@@ -1,21 +1,23 @@
 .wrapper {
     background-color: #0064EB;
+    width: 100%;
 
 }
 
 .section {
-    max-width: 40rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
     gap: 1rem;
-
+    width: 60%;
 }
 
 @media (max-width: 40rem) {
     .section {
-        justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
+
     }
+
 }

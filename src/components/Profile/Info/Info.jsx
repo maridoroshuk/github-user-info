@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 
 function Info() {
     const { user, isError, isSucces, isLoading } = useSelector(state => state.profile)
-    console.log(user)
 
 
 
@@ -16,8 +15,8 @@ function Info() {
             <p><a href={`https://github.com/${user.login}`} target="_blank">{user.login}</a></p>
         </div>
         <div className={styles.followers}>
-            <p><i class="fa-solid fa-user-group"></i>{user.followers} followers</p>
-            <p><i class="fa-solid fa-user"></i>{user.following} following</p>
+            <p className={styles.followersNum}>{user.followers} followers</p>
+            <p className={styles.followingNum}>{user.following} following</p>
         </div>
     </div>
 }

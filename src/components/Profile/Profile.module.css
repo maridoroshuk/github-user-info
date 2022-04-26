@@ -1,11 +1,11 @@
 .wrapper {
     display: flex;
     justify-content: space-around;
-    gap: 6rem;
+    gap: 3rem;
     margin: 1.75rem;
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 40rem) {
     .wrapper {
         flex-wrap: wrap;
     }

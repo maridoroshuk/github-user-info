@@ -18,7 +18,7 @@ function Search() {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(fetchUserProfile(userInut))
-        dispatch(fetchRepos(userInut))
+        dispatch(fetchRepos({ user: userInut }))
         setUserInput("")
     }
     return (
