@@ -12,7 +12,7 @@ function Repos() {
             <ul className={styles.repos}>
                 {repos.map((repo) => (
                     <li>
-                        <h3>{repo.name}</h3>
+                        <h3><a href={`https://github.com/${repo.full_name}`} target='_blank'>{repo.name}</a></h3>
                         <p>{repo.description}</p>
                     </li>
                 ))}
