@@ -18,4 +18,13 @@
     border: none;
     outline: none;
     width: 100%;
+    padding: 0.2rem;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    letter-spacing: 0.01em;
+    color: #808080;
 }

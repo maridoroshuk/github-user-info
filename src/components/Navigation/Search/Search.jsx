@@ -30,6 +30,7 @@ function Search() {
                     type="text"
                     value={userInut}
                     onChange={userInputChangeHandler}
+                    placeholder="Enter GitHub username"
                 />
             </form>
         </div>

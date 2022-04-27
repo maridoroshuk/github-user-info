@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRepos } from '../../store/features/user/userSlice';
 
 function Pages() {
-    const { user, isError, isSucces, isLoading } = useSelector(state => state.profile)
+    const { user } = useSelector(state => state.profile)
 
     const [page, setPage] = useState(1)
 
