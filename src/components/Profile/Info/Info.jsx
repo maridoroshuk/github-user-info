@@ -3,10 +3,7 @@ import styles from "./Info.module.css"
 import { useSelector } from "react-redux"
 
 function Info() {
-    const { user, isError, isSucces, isLoading } = useSelector(state => state.profile)
-
-
-
+    const { user } = useSelector(state => state.profile)
 
     return <div className={styles.wrapper}>
         <div className={styles.name}>

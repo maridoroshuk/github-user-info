@@ -14,7 +14,6 @@ export const fetchRepos = createAsyncThunk(
   "profile/list",
   async (payload, thunkAPI) => {
     try {
-      console.log(payload)
       const response = await axios.get(
         `https://api.github.com/users/${payload.user}/repos?per_page=4&sort=asc&page=${payload.page}`
       )
@@ -60,10 +59,14 @@ const profileSlice = createSlice({
       })
       .addCase(fetchRepos.fulfilled, (state, action) => {
         state.isSucces = true
+        state.isError = false
+        state.isLoading = false
         state.repos = action?.payload
       })
       .addCase(fetchRepos.rejected, (state, action) => {
+        state.isSucces = false
         state.isError = true
+        state.isLoading = false
         state.message = action.payload
       })
       .addCase(fetchUserProfile.pending, (state) => {
@@ -71,10 +74,14 @@ const profileSlice = createSlice({
       })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
         state.isSucces = true
+        state.isError = false
+        state.isLoading = false
         state.user = action?.payload
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
+        state.isSucces = false
         state.isError = true
+        state.isLoading = false
         state.message = action.payload
       })
   }

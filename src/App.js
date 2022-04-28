@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import Loading from "./components/Loading/Loading"
 import Navbar from "./components/Navigation/Navbar"
 import NotFoud from "./components/NotFound/NotFoud"
 import Profile from "./components/Profile/Profile"
@@ -9,14 +10,13 @@ function App() {
     (state) => state.profile
   )
 
-  console.log(isSucces)
-
   return (
     <div>
       <Navbar />
-      {!user.login && !isError && <Starting />}
-      {isSucces && <Profile />}
+      {!user.login && !isError && !isLoading && <Starting />}
+      {isSucces && !isError && <Profile />}
       {isError && <NotFoud />}
+      {isLoading && !isError && !user.login && <Loading />}
     </div>
   )
 }

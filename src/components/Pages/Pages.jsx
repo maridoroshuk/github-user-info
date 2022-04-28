@@ -4,11 +4,25 @@ import { Pagination, PaginationItem } from '@mui/material'
 import { Link as NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRepos } from '../../store/features/user/userSlice';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#0064EB",
+        },
+
+    },
+});
 
 function Pages() {
     const { user } = useSelector(state => state.profile)
+    const pagesCount = Math.ceil(user.public_repos / 4)
+    const isReposQtyMoreFour = user.public_repos > 4 ? true : false
+
 
     const [page, setPage] = useState(1)
+
 
     const dispatch = useDispatch()
 
@@ -17,23 +31,25 @@ function Pages() {
     }, [dispatch, page])
 
     return (
-        <div>
-            <Pagination
-                count={10}
-                onChange={(_, num) => setPage(num)}
-                showFirstButton
-                showLastButton
-                sx={{ marginY: 3, marginX: "auto" }}
-                renderItem={(item) => (
-                    <PaginationItem
-                        component={NavLink}
-                        to={`/?page=${item.page}`}
-                        {...item}
-                    />
-                )}
-            />
-        </div>
-    )
+        <ThemeProvider theme={theme}>
+            {isReposQtyMoreFour && <div className={styles.wrapper}>
+                <Pagination
+                    count={pagesCount}
+                    shape="rounded"
+                    color="primary"
+                    onChange={(_, num) => setPage(num)}
+                    sx={{ marginY: 3, marginX: "auto" }}
+                    renderItem={(item) => (
+                        <PaginationItem
+                            component={NavLink}
+                            to={`/?page=${item.page}`}
+                            {...item}
+                        />
+                    )}
+                />
+            </div>
+            }
+        </ThemeProvider>)
 }
 
 export default Pages

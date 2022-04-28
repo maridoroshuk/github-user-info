@@ -8,9 +8,6 @@ function Search() {
     const [userInut, setUserInput] = useState("")
     const dispatch = useDispatch()
 
-
-
-
     const userInputChangeHandler = (e) => {
         setUserInput(e.target.value)
     }

@@ -1,5 +1,5 @@
 .wrapper {
-    width: 30vw;
+    width: 40%;
 }
 
 .name h2 {
@@ -8,6 +8,7 @@
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 2rem;
+    min-width: 15rem;
 }
 
 .name p a {
@@ -22,6 +23,7 @@
 
 .name img {
     width: 70%;
+    min-width: 200px;
     border-radius: 50%;
     margin: auto;
 }

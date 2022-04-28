@@ -1,0 +1,34 @@
+.repos {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem 2rem;
+}
+
+.repos li {
+
+    max-width: 55rem;
+    min-height: 7rem;
+}
+
+.repos li h3 a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #0064EB;
+}
+
+.repos li p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.1rem;
+
+    color: #000000;
+}

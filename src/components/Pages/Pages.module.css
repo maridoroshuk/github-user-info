@@ -1,8 +1,9 @@
 .wrapper nav {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
     margin-right: 3rem;
+
 }
 
 @media (max-width: 40rem) {
