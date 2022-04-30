@@ -1,23 +1,30 @@
-import { useSelector } from "react-redux"
+import { Suspense } from "react"
+import { Route, Routes } from "react-router-dom"
+import Layout from "./components/Layout/Layout"
 import Loading from "./components/Loading/Loading"
-import Navbar from "./components/Navigation/Navbar"
-import NotFoud from "./components/NotFound/NotFoud"
-import Profile from "./components/Profile/Profile"
-import Starting from "./components/Starting/Starting"
+import Error from "./pages/Error"
+import Starting from "./pages/Starting"
+import User from "./pages/User"
 
 function App() {
-  const { user, isError, isSucces, isLoading } = useSelector(
-    (state) => state.profile
-  )
-
   return (
-    <div>
-      <Navbar />
-      {!user.login && !isError && !isLoading && <Starting />}
-      {isSucces && !isError && <Profile />}
-      {isError && <NotFoud />}
-      {isLoading && !isError && !user.login && <Loading />}
-    </div>
+    <>
+      <Suspense fallback={Loading} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Starting />} />
+          <Route path="user/:id" element={<User />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+      </Routes>
+    </>
+    // <div>
+    //   <Navbar />
+    //   {!user.login && !isError && !isLoading && <Starting />}
+    //   {isSucces && !isError && <Profile />}
+    //   {isError && <NotFoud />}
+    //   {isLoading && !isError && !user.login && <Loading />}
+    // </div>
   )
 }
 

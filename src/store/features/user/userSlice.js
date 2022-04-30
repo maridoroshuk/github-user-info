@@ -51,6 +51,9 @@ export const fetchUserProfile = createAsyncThunk(
 const profileSlice = createSlice({
   name: "profile",
   initialState,
+  reducers: {
+    reset: () => initialState
+  },
 
   extraReducers: (builder) => {
     builder
@@ -87,4 +90,5 @@ const profileSlice = createSlice({
   }
 })
 
+export const { reset } = profileSlice.actions
 export default profileSlice.reducer

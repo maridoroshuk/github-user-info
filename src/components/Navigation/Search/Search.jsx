@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from "./Search.module.css"
 import SearchIcon from "../../../assets/search-icon.png"
 import { fetchRepos, fetchUserProfile } from '../../../store/features/user/userSlice'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function Search() {
     const [userInut, setUserInput] = useState("")
     const dispatch = useDispatch()
+
+
+    const navigate = useNavigate()
+    const goProfile = () => navigate(`/user/${userInut}`, { replace: true })
+
 
     const userInputChangeHandler = (e) => {
         setUserInput(e.target.value)
@@ -16,6 +22,7 @@ function Search() {
         e.preventDefault()
         dispatch(fetchUserProfile(userInut))
         dispatch(fetchRepos({ user: userInut }))
+        goProfile()
         setUserInput("")
     }
     return (
