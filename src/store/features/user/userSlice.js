@@ -7,7 +7,7 @@ const initialState = {
   isError: false,
   isSucces: false,
   isLoading: false,
-  message: ""
+  message: "Something went wrong. Please try again"
 }
 
 export const fetchRepos = createAsyncThunk(

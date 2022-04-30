@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Pages.module.css"
-import { Pagination, PaginationItem } from '@mui/material'
-import { Link as NavLink } from "react-router-dom";
+import { Pagination } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRepos } from '../../store/features/user/userSlice';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -39,13 +38,6 @@ function Pages() {
                     color="primary"
                     onChange={(_, num) => setPage(num)}
                     sx={{ marginY: 3, marginX: "auto" }}
-                    renderItem={(item) => (
-                        <PaginationItem
-                            component={NavLink}
-                            to={`/?page=${item.page}`}
-                            {...item}
-                        />
-                    )}
                 />
             </div>
             }
