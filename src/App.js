@@ -9,22 +9,16 @@ import User from "./pages/User"
 function App() {
   return (
     <>
-      <Suspense fallback={Loading} />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Starting />} />
-          <Route path="user/:id" element={<User />} />
-          <Route path="*" element={<Error />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={Loading}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Starting />} />
+            <Route path="user/:id" element={<User />} />
+            <Route path="*" element={<Error />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
-    // <div>
-    //   <Navbar />
-    //   {!user.login && !isError && !isLoading && <Starting />}
-    //   {isSucces && !isError && <Profile />}
-    //   {isError && <NotFoud />}
-    //   {isLoading && !isError && !user.login && <Loading />}
-    // </div>
   )
 }
 

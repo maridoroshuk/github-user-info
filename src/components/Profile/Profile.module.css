@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     justify-content: space-around;
-    gap: 3rem;
+    gap: 1rem;
     margin: 1.75rem 3.5rem;
 }
 

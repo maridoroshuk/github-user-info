@@ -14,13 +14,13 @@ function Starting() {
         dispatch(reset())
     }, [dispatch])
 
-    // if (isLoading) {
-    //     return <Loading />
-    // }
+    if (isLoading) {
+        return <Loading />
+    }
 
-    // if (isError) {
-    //     return <Empty text={message} />
-    // }
+    if (isError) {
+        return <Empty text={message} />
+    }
 
     return <>
         {!user.login && < Empty img={SearchIcon} alt="search icon" text="Start with searching a GitHub user" />}

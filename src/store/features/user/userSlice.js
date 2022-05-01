@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
   isSucces: false,
   isLoading: false,
+  page: 1,
   message: "Something went wrong. Please try again"
 }
 
