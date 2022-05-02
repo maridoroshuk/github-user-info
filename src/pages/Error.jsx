@@ -1,12 +1,10 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import Empty from '../components/shared/Empty'
+import React from "react"
+import { useSelector } from "react-redux"
+import { Empty } from "../components/shared/Empty"
 
-function Error() {
+export function Error() {
     const { message } = useSelector((state) => state.profile)
     return (
-        <Empty text={message} />
+	<Empty text={message} />
     )
 }
-
-export default Error

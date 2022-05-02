@@ -53,7 +53,10 @@ const profileSlice = createSlice({
   name: "profile",
   initialState,
   reducers: {
-    reset: () => initialState
+    reset: () => initialState,
+    setPage: (state, action) => {
+      state.page = action.payload
+    }
   },
 
   extraReducers: (builder) => {
@@ -91,5 +94,5 @@ const profileSlice = createSlice({
   }
 })
 
-export const { reset } = profileSlice.actions
+export const { reset, setPage } = profileSlice.actions
 export default profileSlice.reducer
