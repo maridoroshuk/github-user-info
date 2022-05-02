@@ -8,16 +8,14 @@ import { User } from "./pages/User"
 
 export function App() {
   return (
-    <>
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Starting />} />
-            <Route path="user/:id" element={<User />} />
-            <Route path="*" element={<Error />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Starting />} />
+          <Route path="user/:id" element={<User />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+      </Routes>
+    </Suspense>
   )
 }

@@ -2,13 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 const initialState = {
+  state: "",
   user: {},
   repos: [],
-  isError: false,
-  isSucces: false,
-  isLoading: false,
   page: 1,
-  message: "Something went wrong. Please try again"
+  message: "Something went wrong. Please try again",
 }
 
 export const fetchRepos = createAsyncThunk(
@@ -21,11 +19,7 @@ export const fetchRepos = createAsyncThunk(
       return response.data
     } catch (error) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+        error?.response?.data?.message || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)
     }
   }
@@ -35,6 +29,7 @@ export const fetchUserProfile = createAsyncThunk(
   "repos/list",
   async (user, thunkAPI) => {
     try {
+      thunkAPI.dispatch(reset())
       const response = await axios.get(`https://api.github.com/users/${user}`)
       return response.data
     } catch (error) {
@@ -56,42 +51,34 @@ const profileSlice = createSlice({
     reset: () => initialState,
     setPage: (state, action) => {
       state.page = action.payload
-    }
+    },
   },
 
   extraReducers: (builder) => {
     builder
       .addCase(fetchRepos.pending, (state) => {
-        state.isLoading = true
+        state.state = "loading"
       })
       .addCase(fetchRepos.fulfilled, (state, action) => {
-        state.isSucces = true
-        state.isError = false
-        state.isLoading = false
+        state.state = "succes"
         state.repos = action?.payload
       })
       .addCase(fetchRepos.rejected, (state, action) => {
-        state.isSucces = false
-        state.isError = true
-        state.isLoading = false
+        state.state = "error"
         state.message = action.payload
       })
       .addCase(fetchUserProfile.pending, (state) => {
-        state.isLoading = true
+        state.state = "loading"
       })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
-        state.isSucces = true
-        state.isError = false
-        state.isLoading = false
+        state.state = "succes"
         state.user = action?.payload
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
-        state.isSucces = false
-        state.isError = true
-        state.isLoading = false
+        state.state = "error"
         state.message = action.payload
       })
-  }
+  },
 })
 
 export const { reset, setPage } = profileSlice.actions

@@ -6,9 +6,8 @@ import { Empty } from "../components/shared/Empty"
 import { reset } from "../store/features/user/userSlice"
 
 export function Starting() {
-    const {
-        user, isError, isLoading, message
-    } = useSelector((state) => state.profile)
+    const { state, message } = useSelector((state) => state.profile)
+
 
     const dispatch = useDispatch()
 
@@ -16,17 +15,15 @@ export function Starting() {
         dispatch(reset())
     }, [dispatch])
 
-    if (isLoading) {
+    if (state === "loading") {
         return <Loading />
     }
 
-    if (isError) {
+    if (state === "error") {
         return <Empty text={message} />
     }
 
     return (
-        <div>
-            {!user.login && <Empty img={SearchIcon} alt="search icon" text="Start with searching a GitHub user" />}
-        </div>
+        <Empty img={SearchIcon} alt="search icon" text="Start with searching a GitHub user" />
     )
 }

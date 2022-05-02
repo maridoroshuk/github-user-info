@@ -1,12 +1,20 @@
 .wrapper {
     width: 60%;
-    min-height: 50vh;
 
 }
 
-.repos {
-    min-height: 75vh;
+.container {
+    display: flex;
+    flex-direction: column;
 }
+
+
+
+.repos ul {
+    min-height: 60vh;
+}
+
+.pages {}
 
 .empty div {
     width: 80%;

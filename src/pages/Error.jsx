@@ -5,6 +5,6 @@ import { Empty } from "../components/shared/Empty"
 export function Error() {
     const { message } = useSelector((state) => state.profile)
     return (
-	<Empty text={message} />
+        <Empty text={message} />
     )
 }

@@ -24,17 +24,17 @@ export function Search() {
         setUserInput("")
     }
     return (
-	<div className={styles.wrapper}>
-		<form onSubmit={submitHandler}>
-			<img src={SearchIcon} alt="search icon" />
-			<label htmlFor="search" />
-			<input
-				type="text"
-				value={userInut}
-				onChange={userInputChangeHandler}
-				placeholder="Enter GitHub username"
-			/>
-		</form>
-	</div>
+        <div className={styles.wrapper}>
+            <form onSubmit={submitHandler}>
+                <img src={SearchIcon} alt="search icon" />
+                <label htmlFor="search" />
+                <input
+                    type="text"
+                    value={userInut}
+                    onChange={userInputChangeHandler}
+                    placeholder="Enter GitHub username"
+                />
+            </form>
+        </div>
     )
 }

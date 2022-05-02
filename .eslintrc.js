@@ -27,7 +27,6 @@ module.exports = {
     "react/state-in-constructor": 0,
     "import/no-extraneous-dependencies": 0,
     "no-param-reassign": 0,
-    "no-tabs": 0,
     "react/prop-types": 0,
     "react/jsx-indent": [2, "tab"],
     "react/jsx-indent-props": [2, "tab"],

@@ -5,13 +5,13 @@ import { NotFoud } from "../components/NotFound/NotFoud"
 import { Profile } from "../components/Profile/Profile"
 
 export function User() {
-    const { user, isError, isLoading } = useSelector((state) => state.profile)
+    const { state } = useSelector((state) => state.profile)
 
-    if (isLoading && !user.login) {
+    if (state === "loading") {
         return <Loading />
     }
 
-    if (isError) {
+    if (state === "error") {
         return <NotFoud />
     }
 

@@ -1,5 +1,6 @@
 .wrapper {
     width: 40%;
+    margin: 2.5rem;
 }
 
 .name h2 {
@@ -37,6 +38,7 @@
 
 .followersNum::before {
     font-family: "Font Awesome 5 Free";
+    color: #808080;
     font-weight: 900;
     content: "\f500";
     margin-right: 0.5rem;
@@ -45,6 +47,7 @@
 
 .followingNum::before {
     font-family: "Font Awesome 5 Free";
+    color: #808080;
     font-weight: 900;
     content: "\f007";
     margin-right: 0.5rem;

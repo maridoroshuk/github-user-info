@@ -1,16 +1,29 @@
+.title {
+    font-size: 2rem;
+}
+
 .repos {
+    min-height: 70vh;
+}
+
+.repos ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 1.5rem 2rem;
+    padding: 1rem 0;
 }
 
-.repos li {
 
+.repos li {
     max-width: 55rem;
     min-height: 7rem;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.5rem 2rem;
+    background: #FFFFFF;
+    border-radius: 6px;
 }
 
 .repos li h3 a {
