@@ -10,11 +10,11 @@ export function ReposList({ repos, user }) {
 				)
 			</h2>
 			<div className={styles.repos}>
-				<ul >
+				<ul className={styles.repos__list}>
 					{repos.map((repo) => (
-						<li key={repo.id}>
-							<h3><a href={repo.html_url} target="_blank" rel="noreferrer">{repo.name}</a></h3>
-							<p>{repo.description}</p>
+						<li className={styles.repo} key={repo.id}>
+							<h3 className={styles.repo__title}><a href={repo.html_url} target="_blank" rel="noreferrer">{repo.name}</a></h3>
+							<p className={styles.repo__body}>{repo.description}</p>
 						</li>
 					))}
 				</ul>

@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     height: 90vh;
-
 }
 
 .text {
@@ -20,7 +19,5 @@
 @media (max-width: 40rem) {
     .text {
         width: 100%;
-
     }
-
 }

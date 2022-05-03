@@ -5,15 +5,15 @@ import { NotFoud } from "../components/NotFound/NotFoud"
 import { Profile } from "../components/Profile/Profile"
 
 export function User() {
-    const { state } = useSelector((state) => state.profile)
+	const { state } = useSelector((state) => state.profile)
 
-    if (state === "loading") {
-        return <Loading />
-    }
+	if (state === "loading") {
+		return <Loading />
+	}
 
-    if (state === "error") {
-        return <NotFoud />
-    }
+	if (state === "error") {
+		return <NotFoud />
+	}
 
-    return <Profile />
+	return <Profile />
 }

@@ -1,9 +1,9 @@
 .wrapper {
     width: 40%;
-    margin: 2.5rem;
+    margin: 3.5rem 1rem;
 }
 
-.name h2 {
+.name {
     font-family: "Inter";
     font-style: normal;
     font-weight: 600;
@@ -11,7 +11,7 @@
     line-height: 2rem;
 }
 
-.name p a {
+.username a {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -21,7 +21,7 @@
     text-decoration: none;
 }
 
-.name img {
+.avatar {
     width: 70%;
     min-width: 200px;
     border-radius: 50%;

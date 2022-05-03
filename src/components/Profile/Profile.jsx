@@ -1,8 +1,8 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import styles from "./Profile.module.css"
 import { Info } from "./Info/Info"
 import { Repos } from "./Repos/Repos"
-import { useSelector } from "react-redux"
 
 export function Profile() {
 	const { repos, user, page } = useSelector(state => state.profile)

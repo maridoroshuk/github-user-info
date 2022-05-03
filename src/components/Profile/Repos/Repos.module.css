@@ -1,6 +1,5 @@
 .wrapper {
     width: 60%;
-
 }
 
 .container {
@@ -8,13 +7,12 @@
     flex-direction: column;
 }
 
-
-
-.repos ul {
-    min-height: 60vh;
+.pages {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
-
-.pages {}
 
 .empty div {
     width: 80%;
@@ -23,6 +21,10 @@
 @media (max-width: 40rem) {
     .wrapper {
         width: 100vw;
+    }
+
+    .pages {
+        justify-content: center;
     }
 
 }

@@ -6,24 +6,23 @@ import { Empty } from "../components/shared/Empty"
 import { reset } from "../store/features/user/userSlice"
 
 export function Starting() {
-    const { state, message } = useSelector((state) => state.profile)
+	const { state, message } = useSelector((state) => state.profile)
 
+	const dispatch = useDispatch()
 
-    const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(reset())
+	}, [dispatch])
 
-    useEffect(() => {
-        dispatch(reset())
-    }, [dispatch])
+	if (state === "loading") {
+		return <Loading />
+	}
 
-    if (state === "loading") {
-        return <Loading />
-    }
+	if (state === "error") {
+		return <Empty text={message} />
+	}
 
-    if (state === "error") {
-        return <Empty text={message} />
-    }
-
-    return (
-        <Empty img={SearchIcon} alt="search icon" text="Start with searching a GitHub user" />
-    )
+	return (
+		<Empty img={SearchIcon} alt="search icon" text="Start with searching a GitHub user" />
+	)
 }

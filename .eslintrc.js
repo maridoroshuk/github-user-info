@@ -1,20 +1,20 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es6: true
   },
   extends: "airbnb",
   globals: {
     Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    SharedArrayBuffer: "readonly"
   },
   parser: "@babel/eslint-parser",
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: "module"
   },
   plugins: ["react", "react-hooks"],
   rules: {
@@ -44,14 +44,15 @@ module.exports = {
     "no-bitwise": 0,
     "template-curly-spacing": 0,
     "no-underscore-dangle": 0,
-    indent: 0,
-    curly: [2, "all"],
+    "indent": [2, "tab"],
+    "no-tabs": 0,
+    "curly": [2, "all"]
   },
   settings: {
     "import/resolver": {
       node: {
-        paths: ["src"],
-      },
-    },
-  },
+        paths: ["src"]
+      }
+    }
+  }
 }

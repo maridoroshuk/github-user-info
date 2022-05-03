@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.wrapper form {
+.form {
     background-color: #FFF;
     padding: 0.5rem;
     display: flex;
@@ -14,7 +14,7 @@
     width: 100%;
 }
 
-.wrapper form input {
+.search {
     border: none;
     outline: none;
     width: 100%;

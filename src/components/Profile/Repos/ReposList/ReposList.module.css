@@ -6,7 +6,7 @@
     min-height: 70vh;
 }
 
-.repos ul {
+.repos__list {
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
 }
 
 
-.repos li {
+.repo {
     max-width: 55rem;
     min-height: 7rem;
     width: 100%;
@@ -26,7 +26,7 @@
     border-radius: 6px;
 }
 
-.repos li h3 a {
+.repo__title a {
     text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
@@ -36,7 +36,7 @@
     color: #0064EB;
 }
 
-.repos li p {
+.repo__body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
