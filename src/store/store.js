@@ -10,10 +10,10 @@ import {
   REGISTER
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
-import profileReduser from "./features/user/userSlice"
+import { profileSlice } from "./features/user/userSlice"
 
 const rootReducer = combineReducers({
-  profile: profileReduser
+  profile: profileSlice.reducer
 })
 
 const persistConfig = {
@@ -25,8 +25,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }

@@ -6,7 +6,7 @@ const initialState = {
   user: {},
   repos: [],
   page: 1,
-  message: "Something went wrong. Please try again",
+  message: "Something went wrong. Please try again"
 }
 
 export const fetchRepos = createAsyncThunk(
@@ -18,8 +18,7 @@ export const fetchRepos = createAsyncThunk(
       )
       return response.data
     } catch (error) {
-      const message =
-        error?.response?.data?.message || error.message || error.toString()
+      const message = error?.response?.data?.message || error.message || error.toString()
       return thunkAPI.rejectWithValue(message)
     }
   }
@@ -33,25 +32,24 @@ export const fetchUserProfile = createAsyncThunk(
       const response = await axios.get(`https://api.github.com/users/${user}`)
       return response.data
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+      const message = (error.response
+        && error.response.data
+        && error.response.data.message)
+        || error.message
+        || error.toString()
       return thunkAPI.rejectWithValue(message)
     }
   }
 )
 
-const profileSlice = createSlice({
+export const profileSlice = createSlice({
   name: "profile",
   initialState,
   reducers: {
     reset: () => initialState,
     setPage: (state, action) => {
       state.page = action.payload
-    },
+    }
   },
 
   extraReducers: (builder) => {
@@ -78,8 +76,7 @@ const profileSlice = createSlice({
         state.state = "error"
         state.message = action.payload
       })
-  },
+  }
 })
 
 export const { reset, setPage } = profileSlice.actions
-export default profileSlice.reducer
