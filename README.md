@@ -1,6 +1,9 @@
 <h1 align="center"> A minimal web app for searching github user</h1>
 <br>
 
+![git](https://user-images.githubusercontent.com/59647513/166963168-982221dd-e3ff-49c1-8118-bc08a07dce4d.gif)
+
+
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> 
